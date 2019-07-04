@@ -67,7 +67,8 @@ CREATE TABLE `organizations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `member_id` INT  NOT NULL,
   PRIMARY KEY (id),
-  INDEX (member_id),
+  UNIQUE INDEX `unique_member_organisation_id` (`member_id` ASC),
+
   FOREIGN KEY (member_id) REFERENCES members(id) ON DELETE RESTRICT On UPDATE RESTRICT
 
 ) ENGINE=InnoDB;
@@ -82,7 +83,7 @@ CREATE TABLE `persons` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `member_id` INT  NOT NULL,
   PRIMARY KEY (id),
-  INDEX (member_id),
+  UNIQUE INDEX `unique_member_person_id` (`member_id` ASC),  
   FOREIGN KEY (member_id) REFERENCES members(id) ON DELETE RESTRICT On UPDATE RESTRICT
 
 ) ENGINE=InnoDB;
