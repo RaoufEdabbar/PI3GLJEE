@@ -58,6 +58,11 @@
 				<artifactId>primefaces</artifactId>
 				<version>${primefaces.version}</version>
 			</dependency>
+			<dependency>			
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>5.2.12.Final</version>
+			</dependency>
 
 		</dependencies>
 	</dependencyManagement>
