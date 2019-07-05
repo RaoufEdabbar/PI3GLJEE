@@ -43,7 +43,7 @@ localhost:8080/Registered web context/api/categories
 ```
 
 
-#Developement:
+# Developement:
 
 1- check this workflow please, we will use it as we are working on this project : https://guides.github.com/introduction/flow/
 
@@ -69,6 +69,13 @@ localhost:8080/Registered web context/api/categories
   4- within pi.esprit.api
 
          create the resource, ex: WorkResources, check CategoryResources
+
+
+
+
+
+
+
 
 
 5- update  
