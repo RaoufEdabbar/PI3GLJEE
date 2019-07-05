@@ -40,18 +40,18 @@ public class Members implements java.io.Serializable {
 	private String immatriculation;
 	private String role;
 	private String status;
-	private Set depotses = new HashSet(0);
-	private Set personses = new HashSet(0);
-	private Set organizationses = new HashSet(0);
-	private Set resignationses = new HashSet(0);
+	private Set<Depots> depotses = new HashSet(0);
+	private Set<Persons> personses = new HashSet(0);
+	private Set<Organizations> organizationses = new HashSet(0);
+	private Set<Resignations> resignationses = new HashSet(0);
 
 	public Members() {
 	}
 
 	public Members(String name, String password, Date birthDate, Integer cin, Integer appliedAt, Date validatedAt,
 			String adress, Integer zip, String mail, Integer phone, String gender, Integer childNumber, String rib,
-			String photo, String immatriculation, String role, String status, Set depotses, Set personses,
-			Set organizationses, Set resignationses) {
+			String photo, String immatriculation, String role, String status, Set<Depots> depotses, Set<Persons> personses,
+			Set<Organizations> organizationses, Set<Resignations> resignationses) {
 		this.name = name;
 		this.password = password;
 		this.birthDate = birthDate;
@@ -242,39 +242,39 @@ public class Members implements java.io.Serializable {
 		this.status = status;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "members")
-	public Set getDepotses() {
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "members")
+	public Set<Depots> getDepotses() {
 		return this.depotses;
 	}
 
-	public void setDepotses(Set depotses) {
+	public void setDepotses(Set<Depots> depotses) {
 		this.depotses = depotses;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "members")
-	public Set getPersonses() {
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "members")
+	public Set<Persons> getPersonses() {
 		return this.personses;
 	}
 
-	public void setPersonses(Set personses) {
+	public void setPersonses(Set<Persons> personses) {
 		this.personses = personses;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "members")
-	public Set getOrganizationses() {
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "members")
+	public Set<Organizations> getOrganizationses() {
 		return this.organizationses;
 	}
 
-	public void setOrganizationses(Set organizationses) {
+	public void setOrganizationses(Set<Organizations> organizationses) {
 		this.organizationses = organizationses;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "members")
-	public Set getResignationses() {
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "members")
+	public Set<Resignations> getResignationses() {
 		return this.resignationses;
 	}
 
-	public void setResignationses(Set resignationses) {
+	public void setResignationses(Set<Resignations> resignationses) {
 		this.resignationses = resignationses;
 	}
 

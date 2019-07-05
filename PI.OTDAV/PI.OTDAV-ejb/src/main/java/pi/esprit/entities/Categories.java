@@ -22,12 +22,12 @@ public class Categories implements java.io.Serializable {
 	private Integer id;
 	private String label;
 	private Integer price;
-	private Set workses = new HashSet(0);
+	private Set<Works> workses = new HashSet(0);
 
 	public Categories() {
 	}
 
-	public Categories(String label, Integer price, Set workses) {
+	public Categories(String label, Integer price, Set<Works> workses) {
 		this.label = label;
 		this.price = price;
 		this.workses = workses;
@@ -63,12 +63,12 @@ public class Categories implements java.io.Serializable {
 		this.price = price;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "categories")
-	public Set getWorkses() {
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "categories")
+	public Set<Works> getWorkses() {
 		return this.workses;
 	}
 
-	public void setWorkses(Set workses) {
+	public void setWorkses(Set<Works> workses) {
 		this.workses = workses;
 	}
 

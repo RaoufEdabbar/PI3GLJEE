@@ -30,8 +30,8 @@ public class Works implements java.io.Serializable {
 	private String status;
 	private Date createdAt;
 	private Date renewedAt;
-	private Set feeses = new HashSet(0);
-	private Set depotses = new HashSet(0);
+	private Set<Fees> feeses = new HashSet(0);
+	private Set<Depots> depotses = new HashSet(0);
 
 	public Works() {
 	}
@@ -40,8 +40,8 @@ public class Works implements java.io.Serializable {
 		this.categories = categories;
 	}
 
-	public Works(Categories categories, Integer label, String status, Date createdAt, Date renewedAt, Set feeses,
-			Set depotses) {
+	public Works(Categories categories, Integer label, String status, Date createdAt, Date renewedAt, Set<Fees> feeses,
+			Set<Depots> depotses) {
 		this.categories = categories;
 		this.label = label;
 		this.status = status;
@@ -63,7 +63,7 @@ public class Works implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "category_id", nullable = false)
 	public Categories getCategories() {
 		return this.categories;
@@ -111,21 +111,21 @@ public class Works implements java.io.Serializable {
 		this.renewedAt = renewedAt;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "works")
-	public Set getFeeses() {
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "works")
+	public Set<Fees> getFeeses() {
 		return this.feeses;
 	}
 
-	public void setFeeses(Set feeses) {
+	public void setFeeses(Set<Fees> feeses) {
 		this.feeses = feeses;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "works")
-	public Set getDepotses() {
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "works")
+	public Set<Depots> getDepotses() {
 		return this.depotses;
 	}
 
-	public void setDepotses(Set depotses) {
+	public void setDepotses(Set<Depots> depotses) {
 		this.depotses = depotses;
 	}
 

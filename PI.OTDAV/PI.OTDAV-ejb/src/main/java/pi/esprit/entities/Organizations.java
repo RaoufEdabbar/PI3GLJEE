@@ -41,7 +41,7 @@ public class Organizations implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "member_id", unique = true, nullable = false)
 	public Members getMembers() {
 		return this.members;
