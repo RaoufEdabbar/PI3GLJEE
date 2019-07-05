@@ -47,7 +47,7 @@ localhost:8080/Registered web context/api/categories
 
 1- check this workflow please, we will use it as we are working on this project : https://guides.github.com/introduction/flow/
 
-2- after the installation of the project, create new branch of each feature:
+2- after the installation of the project, create new branch for each feature:
    
     as an example: manage category,
 
@@ -55,7 +55,7 @@ localhost:8080/Registered web context/api/categories
      git checkout -b f-manage-categories 
   ```
 
-  then push your modification, create pull-request, github will trigger a hook to check if there is conflits between your branch and master branch, if every think ok you can merge otherwise, within ur branch fetch master and manage the conflits files and push again.
+  then push your modification, create pull-request, github will trigger a hook to check if there is conflicts between your branch and master branch, if every think ok you can merge, otherwise, within ur branch fetch master and manage the conflicts files and push again.
 
 
   # every new branch should be created from master.
