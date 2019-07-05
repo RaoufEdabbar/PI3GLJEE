@@ -27,7 +27,7 @@ git clone https://github.com/RaoufEdabbar/PI3GLJEE.git
 
 ``` with your ide right click on PI.OTDAV > RUN AS > Maven install ```
 
-6- lanch the server
+6- launch the server
 
 7- deploy the project within the server: in the server tab
 
