@@ -61,6 +61,23 @@ localhost:8080/Registered web context/api/categories
   # every new branch should be created from master.
 
 
+  3- within pi.domain.ejb package:
+
+          create the Remote Interface, ex: WorkFacadeRemote, check CategoryFacadeRemote
+          create the WorkBean ejb with the implementation of WorkFacadeRemote, check CategoryBean
+
+  4- within pi.esprit.api
+
+         create the resource, ex: WorkResources, check CategoryResources
+
+
+
+
+
+
+
+
+
 5- update  
 
 Architecture de Projet JEE
