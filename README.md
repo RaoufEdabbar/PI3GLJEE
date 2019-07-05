@@ -71,13 +71,6 @@ localhost:8080/Registered web context/api/categories
          create the resource, ex: WorkResources, check CategoryResources
 
 
-
-
-
-
-
-
-
 5- update  
 
 Architecture de Projet JEE
