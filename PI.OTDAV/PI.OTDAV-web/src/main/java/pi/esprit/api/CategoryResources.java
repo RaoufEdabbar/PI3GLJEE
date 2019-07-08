@@ -10,19 +10,20 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import pi.domain.ejb.CategoryFacadeRemote;
 
-@Path("/categories")
+@Path("categories")
 @Stateless
 public class CategoryResources {
 	
 	@EJB
-	private CategoryFacadeRemote categoryEjb;
+	private CategoryFacadeRemote categoryEjb;	
+	
 	
 	@GET
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response all()
-	{	
-		 return Response.ok().entity(categoryEjb.all()).build();
+	{	 
+		return Response.ok().entity(categoryEjb.all()).build();
 	}
 	
 	

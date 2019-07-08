@@ -1,11 +1,9 @@
 package pi.domain.ejb;
 
 import java.util.List;
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
 import pi.esprit.entities.Categories;
 
 @Stateless
@@ -33,7 +31,7 @@ public class CategoryBean implements CategoryFacadeRemote {
 
 	@Override
 	public List<Categories> all() {
-		
+	
 		return em.createQuery("from Categories", Categories.class).getResultList();
 	}
 
