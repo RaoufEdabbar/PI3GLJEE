@@ -136,6 +136,12 @@ fabric.properties
 ######################
 
 **/target/
+**/.settings
+/.settings
+/.project
+**/.project
+/.classpath
+**/.classpath
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup

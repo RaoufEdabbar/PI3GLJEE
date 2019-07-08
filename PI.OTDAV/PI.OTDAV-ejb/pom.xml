@@ -26,12 +26,6 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.45</version>
 		</dependency>
-		  <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-jaxrs</artifactId>
-            <version>3.0.19.Final</version>
-            <scope>provided</scope>
-       </dependency>
 	</dependencies>
 
 	<build>
