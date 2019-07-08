@@ -9,6 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import pi.domain.ejb.CategoryFacadeRemote;
+import pi.esprit.entities.Categories;
 
 @Path("/categories")
 @Stateless
@@ -22,6 +23,10 @@ public class CategoryResources {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response all()
 	{	
+		Categories categorie = new Categories();
+		categorie.setLabel("test");
+		categorie.setPrice(1254);
+		categoryEjb.save(categorie);
 		 return Response.ok().entity(categoryEjb.all()).build();
 	}
 	
