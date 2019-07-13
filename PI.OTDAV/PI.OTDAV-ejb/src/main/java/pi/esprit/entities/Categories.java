@@ -19,10 +19,14 @@ import javax.persistence.Table;
 @Table(name = "categories", catalog = "otdav")
 public class Categories implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String label;
 	private Integer price;
-	private Set<Works> workses = new HashSet(0);
+	private Set<Works> workses = new HashSet<Works>(0);
 
 	public Categories() {
 	}
