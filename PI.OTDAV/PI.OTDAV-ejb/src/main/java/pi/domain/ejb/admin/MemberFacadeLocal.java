@@ -1,11 +1,12 @@
 package pi.domain.ejb.admin;
 
 import java.util.List;
-import javax.ejb.Remote;
+
+import javax.ejb.Local;
 import pi.esprit.entities.Members;
 
-@Remote
-public interface MemberFacadeRemote {
+@Local
+public interface MemberFacadeLocal {
 	
 	
 	void save(Members member);
@@ -13,5 +14,6 @@ public interface MemberFacadeRemote {
     Members find(Object id);
 	void remove(Members member);
 	List<Members> all();
+	void validate(Object id);
 
 }

@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 import pi.esprit.entities.Categories;
 
 @Stateless
-public class CategoryBean implements CategoryFacadeRemote {
+public class CategoryBean implements CategoryFacadeLocal {
 	
 	@PersistenceContext
 	private EntityManager em;

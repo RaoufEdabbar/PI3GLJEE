@@ -24,14 +24,18 @@ import javax.persistence.TemporalType;
 @Table(name = "works", catalog = "otdav")
 public class Works implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private Categories categories;
 	private Integer label;
 	private String status;
 	private Date createdAt;
 	private Date renewedAt;
-	private Set<Fees> feeses = new HashSet(0);
-	private Set<Depots> depotses = new HashSet(0);
+	private Set<Fees> feeses = new HashSet<Fees>(0);
+	private Set<Depots> depotses = new HashSet<Depots>(0);
 
 	public Works() {
 	}

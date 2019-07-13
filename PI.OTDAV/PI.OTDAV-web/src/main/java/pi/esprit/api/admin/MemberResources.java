@@ -1,5 +1,8 @@
 package pi.esprit.api.admin;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
@@ -12,8 +15,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
-import pi.domain.ejb.admin.MemberFacadeRemote;
+import pi.domain.ejb.admin.MemberFacadeLocal;
 import pi.esprit.entities.Members;
 
 @Path("admin/members")
@@ -23,7 +25,7 @@ import pi.esprit.entities.Members;
 public class MemberResources {
 	
 	@EJB
-	MemberFacadeRemote memberEjb;
+	MemberFacadeLocal memberEjb;
 	
 	
 	@GET
@@ -64,6 +66,16 @@ public class MemberResources {
 		
 		return Response.ok().build();
 	}
+	
+	@Path("/validate/{id}")
+	@POST
+	public Response validate(@PathParam("id") int id)
+	{
+		memberEjb.validate(id);
+	
+		return Response.ok().build();
+	}
+	
 	
 	
 	

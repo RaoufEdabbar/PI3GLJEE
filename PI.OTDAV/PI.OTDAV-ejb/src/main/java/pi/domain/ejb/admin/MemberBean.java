@@ -1,15 +1,15 @@
 package pi.domain.ejb.admin;
 
+import java.sql.Timestamp;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
 import pi.esprit.entities.Members;
-import pi.esprit.entities.Persons;
+import pi.esprit.enumeration.MemberStatus;
 
 @Stateless
-public class MemberBean implements MemberFacadeRemote {
+public class MemberBean implements MemberFacadeLocal {
 
 	@PersistenceContext
 	private EntityManager em;
@@ -54,4 +54,14 @@ public class MemberBean implements MemberFacadeRemote {
 		return em.createQuery("from Members", Members.class).getResultList();
 	}
 
+	@Override
+	public void validate(Object id) {
+		
+		Members member = this.find(id);
+		member.setValidatedAt( new Timestamp(System.currentTimeMillis()));
+		member.setStatus(MemberStatus.VALIDATED);
+		em.persist(member);
+	}
+		
 }
+

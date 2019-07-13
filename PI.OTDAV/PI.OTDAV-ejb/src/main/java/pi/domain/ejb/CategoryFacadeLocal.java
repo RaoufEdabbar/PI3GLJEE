@@ -1,11 +1,11 @@
 package pi.domain.ejb;
 
-import javax.ejb.Remote;
+import javax.ejb.Local;
 import pi.esprit.entities.Categories;
 import java.util.List;
 
-@Remote
-public interface CategoryFacadeRemote {
+@Local
+public interface CategoryFacadeLocal {
 
 	void save(Categories category);
 	void edit(Categories category);
