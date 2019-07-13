@@ -2,8 +2,10 @@ package pi.esprit.utilities;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
+
 import pi.domain.ejb.CategoryBean;
 import pi.domain.ejb.admin.MemberBean;
 import pi.esprit.api.CategoryResources;
@@ -25,7 +27,6 @@ public class RestActivator extends Application{
 	    	
 	    	classes.add(CategoryResources.class);
 	    	classes.add(CategoryBean.class);
-	    	
 	    	classes.add(MemberResources.class);
 	    	classes.add(MemberBean.class);
 	    	
