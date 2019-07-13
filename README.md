@@ -63,8 +63,8 @@ localhost:8080/Registered web context/api/categories
 
   3- within pi.domain.ejb package:
 
-          create the Remote Interface, ex: WorkFacadeRemote, check CategoryFacadeRemote
-          create the WorkBean ejb with the implementation of WorkFacadeRemote, check CategoryBean
+          create the Remote Interface, ex: WorkFacadeLocal, check CategoryFacadeLocal
+          create the WorkBean ejb with the implementation of WorkFacadeLocal, check CategoryBean
 
   4- within pi.esprit.api
 
