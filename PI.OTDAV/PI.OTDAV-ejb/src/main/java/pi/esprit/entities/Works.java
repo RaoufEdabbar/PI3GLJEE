@@ -30,7 +30,7 @@ public class Works implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private Categories categories;
-	private Integer label;
+	private String label;
 	private String status;
 	private Date createdAt;
 	private Date renewedAt;
@@ -44,7 +44,7 @@ public class Works implements java.io.Serializable {
 		this.categories = categories;
 	}
 
-	public Works(Categories categories, Integer label, String status, Date createdAt, Date renewedAt, Set<Fees> feeses,
+	public Works(Categories categories, String label, String status, Date createdAt, Date renewedAt, Set<Fees> feeses,
 			Set<Depots> depotses) {
 		this.categories = categories;
 		this.label = label;
@@ -77,12 +77,12 @@ public class Works implements java.io.Serializable {
 		this.categories = categories;
 	}
 
-	@Column(name = "label")
-	public Integer getLabel() {
+	@Column(name = "label", length = 254)
+	public String getLabel() {
 		return this.label;
 	}
 
-	public void setLabel(Integer label) {
+	public void setLabel(String label) {
 		this.label = label;
 	}
 
