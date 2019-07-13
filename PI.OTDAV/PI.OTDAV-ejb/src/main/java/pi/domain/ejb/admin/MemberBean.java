@@ -59,7 +59,7 @@ public class MemberBean implements MemberFacadeLocal {
 		
 		Members member = this.find(id);
 		member.setValidatedAt( new Timestamp(System.currentTimeMillis()));
-		member.setStatus(MemberStatus.VALIDATED);
+		member.setStatus(MemberStatus.ACCEPTED);
 		em.persist(member);
 	}
 	
