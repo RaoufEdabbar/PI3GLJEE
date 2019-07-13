@@ -22,9 +22,8 @@ public class CategoryResources {
 	
 	@GET
 	public Response all()
-	{	 
-		
-		return Response.ok().entity(categoryEjb.all()).build();
+	{	
+		 return Response.ok().entity(categoryEjb.all()).build(); 	
 	}
 	
 	
