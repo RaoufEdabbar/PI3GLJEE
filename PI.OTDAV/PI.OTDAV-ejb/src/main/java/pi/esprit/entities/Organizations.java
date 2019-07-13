@@ -19,6 +19,10 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "organizations", catalog = "otdav", uniqueConstraints = @UniqueConstraint(columnNames = "member_id"))
 public class Organizations implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private Members members;
 

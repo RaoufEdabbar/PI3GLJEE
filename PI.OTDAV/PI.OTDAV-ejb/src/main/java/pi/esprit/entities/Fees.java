@@ -21,6 +21,10 @@ import javax.persistence.TemporalType;
 @Table(name = "fees", catalog = "otdav")
 public class Fees implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private Works works;
 	private Date payedAt;

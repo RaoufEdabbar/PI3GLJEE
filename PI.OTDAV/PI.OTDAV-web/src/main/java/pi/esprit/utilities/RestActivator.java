@@ -7,7 +7,9 @@ import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
 import pi.domain.ejb.CategoryBean;
+import pi.domain.ejb.admin.MemberBean;
 import pi.esprit.api.CategoryResources;
+import pi.esprit.api.admin.MemberResources;
 
 @ApplicationPath("api")
 public class RestActivator extends Application{
@@ -17,6 +19,7 @@ public class RestActivator extends Application{
 
 	    public RestActivator() {
 	        singletons.add(new CategoryResources());
+	        singletons.add(new MemberResources());
 	    }
 
 	    @Override
@@ -24,6 +27,8 @@ public class RestActivator extends Application{
 	    	
 	    	classes.add(CategoryResources.class);
 	    	classes.add(CategoryBean.class);
+	    	classes.add(MemberResources.class);
+	    	classes.add(MemberBean.class);
 	    	
 	        return classes;
 	    }
