@@ -15,6 +15,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import org.jboss.logging.Param;
+
 import pi.domain.ejb.admin.MemberFacadeLocal;
 import pi.esprit.entities.Members;
 
@@ -73,6 +76,15 @@ public class MemberResources {
 	{
 		memberEjb.validate(id);
 	
+		return Response.ok().build();
+	}
+	
+	@Path("/rejecte/{id}")
+	@POST
+	public Response reject(@PathParam("id") int id)
+	{
+		memberEjb.reject(id);
+		
 		return Response.ok().build();
 	}
 	

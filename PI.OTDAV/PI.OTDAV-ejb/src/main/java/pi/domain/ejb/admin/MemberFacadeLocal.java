@@ -15,5 +15,6 @@ public interface MemberFacadeLocal {
 	void remove(Members member);
 	List<Members> all();
 	void validate(Object id);
+	void reject(Object id);
 
 }

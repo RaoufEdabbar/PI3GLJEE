@@ -62,6 +62,15 @@ public class MemberBean implements MemberFacadeLocal {
 		member.setStatus(MemberStatus.VALIDATED);
 		em.persist(member);
 	}
+	
+	@Override
+	public void reject(Object id)
+	{
+		Members member = this.find(id);
+		member.setValidatedAt(new Timestamp(System.currentTimeMillis()));
+		member.setStatus(MemberStatus.REJECTED);
+		em.persist(member);
+	}
 		
 }
 
