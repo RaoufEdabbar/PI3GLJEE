@@ -35,7 +35,7 @@ public class Members implements java.io.Serializable {
 	private String password;
 	private Date birthDate;
 	private Integer cin;
-	private Integer appliedAt;
+	private Date appliedAt;
 	private Date validatedAt;
 	private String adress;
 	private Integer zip;
@@ -57,7 +57,7 @@ public class Members implements java.io.Serializable {
 	public Members() {
 	}
 
-	public Members(String name, String password, Date birthDate, Integer cin, Integer appliedAt, Date validatedAt,
+	public Members(String name, String password, Date birthDate, Integer cin, Date appliedAt, Date validatedAt,
 			String adress, Integer zip, String mail, Integer phone, String gender, Integer childNumber, String rib,
 			String photo, String immatriculation, MemberRole role, MemberStatus status) {
 		this.name = name;
@@ -128,12 +128,13 @@ public class Members implements java.io.Serializable {
 		this.cin = cin;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "applied_at")
-	public Integer getAppliedAt() {
+	public Date getAppliedAt() {
 		return this.appliedAt;
 	}
 
-	public void setAppliedAt(Integer appliedAt) {
+	public void setAppliedAt(Date appliedAt) {
 		this.appliedAt = appliedAt;
 	}
 

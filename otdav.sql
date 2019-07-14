@@ -40,7 +40,7 @@ CREATE TABLE `members` (
   `password` varchar(254) DEFAULT NULL,
   `birth_date` timestamp NULL DEFAULT NULL,
   `cin` int(11) DEFAULT NULL,
-  `applied_at` int(11) DEFAULT NULL,
+  `applied_at` timestamp DEFAULT NULL,
   `validated_at` timestamp NULL DEFAULT NULL,
   `adress` varchar(254) DEFAULT NULL,
   `zip` int(11) DEFAULT NULL,
@@ -112,7 +112,7 @@ CREATE TABLE `resignations` (
 
 CREATE TABLE `works` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `label` int(11) DEFAULT NULL,
+  `label` varchar(254) DEFAULT NULL,
   `category_id` INT NOT NULL,
   `status` varchar(254) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
