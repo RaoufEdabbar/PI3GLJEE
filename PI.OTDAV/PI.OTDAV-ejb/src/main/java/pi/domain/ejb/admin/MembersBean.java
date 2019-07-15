@@ -1,15 +1,20 @@
 package pi.domain.ejb.admin;
 
 import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import pi.email.logic.Mailin;
 import pi.esprit.entities.Members;
 import pi.esprit.enumeration.MemberStatus;
 
 @Stateless
-public class MemberBean implements MemberFacadeLocal {
+public class MembersBean implements MemberFacadeLocal {
 
 	@PersistenceContext
 	private EntityManager em;
@@ -61,6 +66,8 @@ public class MemberBean implements MemberFacadeLocal {
 		member.setValidatedAt( new Timestamp(System.currentTimeMillis()));
 		member.setStatus(MemberStatus.ACCEPTED);
 		em.persist(member);
+		
+		sendAccecptedNotification(member.getMail());
 	}
 	
 	@Override
@@ -70,6 +77,21 @@ public class MemberBean implements MemberFacadeLocal {
 		member.setValidatedAt(new Timestamp(System.currentTimeMillis()));
 		member.setStatus(MemberStatus.REJECTED);
 		em.persist(member);
+	}
+	
+	private void sendAccecptedNotification(String email)
+	{
+		Mailin http = new Mailin("https://api.sendinblue.com/v2.0","9y13b8mWFGQOZTxI");
+		Map < String, String > to = new HashMap < String, String > ();
+			to.put(email, "");
+
+		Map < String, Object > data = new HashMap < String, Object > ();
+			data.put("to", to);
+			data.put("from", new String [] {"test@gmail.com",""});
+			data.put("subject", "Votre demande de regoindre otdav est accepté");
+			data.put("html", "This is the <h1>test</h1>");
+		String str = http.send_email(data);
+		System.out.println(str);
 	}
 		
 }

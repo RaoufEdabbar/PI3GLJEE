@@ -1,7 +1,5 @@
 package pi.esprit.api.admin;
 
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -15,9 +13,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
-import org.jboss.logging.Param;
-
 import pi.domain.ejb.admin.MemberFacadeLocal;
 import pi.esprit.entities.Members;
 
