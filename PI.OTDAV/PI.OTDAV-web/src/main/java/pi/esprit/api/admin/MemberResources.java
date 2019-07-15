@@ -1,7 +1,5 @@
 package pi.esprit.api.admin;
 
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -73,6 +71,15 @@ public class MemberResources {
 	{
 		memberEjb.validate(id);
 	
+		return Response.ok().build();
+	}
+	
+	@Path("/rejecte/{id}")
+	@POST
+	public Response reject(@PathParam("id") int id)
+	{
+		memberEjb.reject(id);
+		
 		return Response.ok().build();
 	}
 	

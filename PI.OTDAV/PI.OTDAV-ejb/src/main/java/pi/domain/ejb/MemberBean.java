@@ -1,26 +1,41 @@
-package pi.domain.ejb.admin;
+package pi.domain.ejb;
 
-import java.sql.Timestamp;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import pi.esprit.entities.Members;
+import pi.esprit.enumeration.MemberRole;
 import pi.esprit.enumeration.MemberStatus;
 
 @Stateless
 public class MemberBean implements MemberFacadeLocal {
 
+	
 	@PersistenceContext
-	private EntityManager em;
+	EntityManager em;
 	
 	@Override
-	public void save(Members member) {
+	public void register(Members member) {
+		
+		member.setStatus(MemberStatus.CREATED);
+		member.setRole(MemberRole.USER);
+		
 		em.persist(member);
 	}
 
 	@Override
-	public void edit(Members member) {
+	public List<Members> login(Members member) {
+		
+		List m =  em.createNativeQuery("select * from members where mail = :email", Members.class)
+				.setParameter("email", member.getMail())
+				.getResultList();
+		
+		return m;
+	}
+
+	@Override
+	public void update(Members member) {
 		
 		Members m = this.find(member.getId());
 		m.setName(member.getName());
@@ -30,38 +45,15 @@ public class MemberBean implements MemberFacadeLocal {
 		m.setGender(member.getGender());
 		m.setImmatriculation(member.getImmatriculation());
 		m.setMail(member.getMail());
-		m.setPassword(member.getPassword());
-		m.setValidatedAt(member.getValidatedAt());
 		m.setZip(member.getZip());
 		m.setRib(member.getRib());
-		m.setRole(member.getRole());
 		
 		em.persist(m);
 	}
 
 	@Override
-	public Members find(Object id) {		
+	public Members find(int id) {
 		return em.find(Members.class, id);
 	}
 
-	@Override
-	public void remove(Members member) {
-		em.remove(em.merge(member));
-	}
-
-	@Override
-	public List<Members> all() {
-		return em.createQuery("from Members", Members.class).getResultList();
-	}
-
-	@Override
-	public void validate(Object id) {
-		
-		Members member = this.find(id);
-		member.setValidatedAt( new Timestamp(System.currentTimeMillis()));
-		member.setStatus(MemberStatus.VALIDATED);
-		em.persist(member);
-	}
-		
 }
-
